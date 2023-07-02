@@ -18,7 +18,7 @@ fun Route.customerRouting() {
             }
         }
         get("{id?}") {
-            val id = call.parameters["id"] ?: return@get call.respondText(
+            val id: Int = call.parameters["id"]?.toIntOrNull() ?: return@get call.respondText(
                 "Missing id",
                 status = HttpStatusCode.BadRequest
             )
@@ -34,7 +34,7 @@ fun Route.customerRouting() {
             call.respond(customer) //Вернуть объект и статус
         }
         delete("{id?}") {
-            val id = call.parameters["id"] ?: return@delete call.respondText(
+            val id = call.parameters["id"]?.toIntOrNull() ?: return@delete call.respondText(
                 "Missing id",
                 status = HttpStatusCode.BadRequest
             )
