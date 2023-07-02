@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  postgresdb:
+    image: postgres:14
+    container_name: postgresKtor
+    ports:
+      - '5439:5432'
+    volumes:
+      - ./pl_db:/var/lib/postgresql/data
+      - ./sql/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres

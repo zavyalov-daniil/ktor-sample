@@ -2,6 +2,7 @@ package com.example.routes
 
 import com.example.models.Customer
 import com.example.models.customerStorage
+import com.example.repository.CustomerRepository
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
@@ -31,6 +32,8 @@ fun Route.customerRouting() {
         post {
             val customer = call.receive<Customer>()
             customerStorage.add(customer)
+            val rep = CustomerRepository();
+            rep.createCustomer(customer)
             call.response.status(HttpStatusCode.Created)
             call.respond(customer)
         }
