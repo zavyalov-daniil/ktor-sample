@@ -35,7 +35,7 @@ class ApplicationTest {
             setBody("""{"id":1,"firstName":"aaa","lastName":"bbb","email":"eee"}""")
         }
         assertEquals("""{"id":1,"firstName":"aaa","lastName":"bbb","email":"eee"}""", response.bodyAsText())
-        assertEquals(HttpStatusCode.OK, response.status)
+        assertEquals(HttpStatusCode.Created, response.status)
     }
     @Test
     fun handlingRequestValidationException() = testApplication {

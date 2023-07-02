@@ -31,7 +31,8 @@ fun Route.customerRouting() {
         post {
             val customer = call.receive<Customer>()
             customerStorage.add(customer)
-            call.respond(customer) //Вернуть объект и статус
+            call.response.status(HttpStatusCode.Created)
+            call.respond(customer)
         }
         delete("{id?}") {
             val id = call.parameters["id"]?.toIntOrNull() ?: return@delete call.respondText(
