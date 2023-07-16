@@ -35,5 +35,8 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
     implementation("org.ktorm:ktorm-core:$ktorm_version")
     implementation("org.ktorm:ktorm-support-postgresql:$ktorm_version")
+    implementation("io.ktor:ktor-server-swagger:$ktor_version")
     implementation("org.postgresql:postgresql:$postgresql_driver_version")
+    implementation("io.ktor:ktor-server-openapi:$ktor_version")
+    implementation("io.swagger.codegen.v3:swagger-codegen-generators:1.0.36")
 }
